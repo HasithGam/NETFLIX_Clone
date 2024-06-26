@@ -1,0 +1,121 @@
+.navbar{
+    width: 100%;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    font-size: 14px;
+    color: #e5e5e5;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10% , transparent);
+    z-index: 1;
+}
+.navbar-left{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.nav-left-menu a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-left-menu a:hover {
+  color: #f0f0f0;
+}
+
+.nav-left-menu a:visited {
+  color: white;
+}
+.nav-left-menu li{
+    transition: transform 0.3s;
+}
+.nav-left-menu li:hover{
+    transform: scale(1.05); 
+    color: rgba(230, 228, 228, 0.8);
+}
+
+.navbar-left img{
+    width: 90px;
+}
+
+.navbar-left ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.navbar-left ul li{
+    cursor: pointer;
+}
+
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease-in-out;
+}
+
+.dropdown a:hover {
+  color: #f0f0f0;
+}
+
+.dropdown a:visited {
+  color: white;
+}
+
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar-right .icons{
+    width: 20px;
+    cursor: pointer;
+}
+
+.navbar-right .profile{
+    border-radius: 4px;
+    width: 25px;
+}
+.navbar-profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.navbar .dropdown{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: max-content;
+    background: rgba(25, 25, 25, 0.8);
+    padding: 18px 22px;
+    border-radius: 2px;
+    z-index: 1;
+    display: none;
+    border: 1px solid rgba(51, 51, 51, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    
+}
+.navbar-profile:hover .dropdown{
+    display: block;
+    
+}
+.navbar .dropdown ul{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.settinglist{
+    padding: 0%;
+    margin: 10px;
+}
+.settinglist:hover{
+    text-decoration: underline;
+}
+ 
