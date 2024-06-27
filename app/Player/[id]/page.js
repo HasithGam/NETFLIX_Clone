@@ -2,12 +2,26 @@
 import React, { useEffect, useState } from 'react';
 import '../Player.css';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/app/firebase';
 
 const Player = () => {
     const [movieDetails, setMovieDetails] = useState(null);
     const { id } = useParams();
     const path = usePathname();
+    const router = useRouter();
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                router.push('/Login');
+            }
+        });
+
+        return () => unsubscribe();
+    }, [router]);
+
     const getMovieDetails = () => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ccd4078b314e64c52e5fb9c409042e78`)
             .then(response => response.json())
@@ -22,7 +36,6 @@ const Player = () => {
     };
 
     useEffect(() => {
-        // console.log("Movie ID:", id); // Log the movie ID
         getMovieDetails();
     }, [id]);
 
@@ -43,7 +56,6 @@ const Player = () => {
                             </p>
                             <p>{movieDetails.original_title}</p>
                             <p>{movieDetails.overview}</p>
-
                         </>
                     ) : (
                         <p>Loading...</p> // Optional: you can show a loading message or spinner here
