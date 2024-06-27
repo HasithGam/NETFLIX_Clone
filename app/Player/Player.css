@@ -1,0 +1,36 @@
+body{
+  background: rgb(8, 8, 8);
+  color: white;
+  font-family: 'poppins';
+}
+.player{
+    width: 100%;
+    max-width: 750px;
+    background: rgb(32, 32, 32);
+    border-radius: 4px;
+    /* padding: 30px; */
+    margin: auto;
+    margin-top: 60px;
+}
+.back-icon{
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    width: 50px;
+    cursor: pointer;
+}
+.player-info{
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.player-info p{
+    padding: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.movie-poster{
+    width: 100%;
+    mask-image: linear-gradient(to top, transparent,black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent,black 40%);
+}

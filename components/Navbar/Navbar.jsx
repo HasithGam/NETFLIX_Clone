@@ -1,14 +1,23 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 import './Navbar.css'
 
 const Navbar = () => {
   const path = usePathname();
-
+  const navRef = useRef();
+  useEffect(()=>{
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY >= 80){
+        navRef.current.classList.add('nav-dark')
+      }else{
+        navRef.current.classList.remove('nav-dark')
+      }
+    })
+  })
   return (
-    <div className='navbar'>
+    <div ref={navRef} className='navbar'>
       <div className="navbar-left">
         <img src="/assets/logo.png" alt="NETFLIX Logo" />
         <ul className='nav-left-menu'>

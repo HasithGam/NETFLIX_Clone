@@ -21,11 +21,9 @@
   font-weight: bold;
   transition: color 0.3s ease-in-out;
 }
-
 .nav-left-menu a:hover {
   color: #f0f0f0;
 }
-
 .nav-left-menu a:visited {
   color: white;
 }
@@ -36,7 +34,6 @@
     transform: scale(1.05); 
     color: rgba(230, 228, 228, 0.8);
 }
-
 .navbar-left img{
     width: 90px;
 }
@@ -49,24 +46,18 @@
 .navbar-left ul li{
     cursor: pointer;
 }
-
-
 .dropdown a {
   color: white;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease-in-out;
 }
-
 .dropdown a:hover {
   color: #f0f0f0;
 }
-
 .dropdown a:visited {
   color: white;
 }
-
-
 .navbar-right{
     display: flex;
     align-items: center;
@@ -117,5 +108,10 @@
 }
 .settinglist:hover{
     text-decoration: underline;
+}
+.nav-dark{
+    transition: background-color 0.3s;
+    background: rgba(25, 25, 25, 0.95);
+    
 }
  

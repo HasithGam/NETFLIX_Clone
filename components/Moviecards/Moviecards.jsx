@@ -1,16 +1,17 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react'
-import './MovieCards.css'
+import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import './MovieCards.css';
 
-const Moviecards = ({title,category}) => {
+const Moviecards = ({ title, category }) => {
   const [movieList, setMovieList] = useState([]);
   
   const getMovie = () => {
-    fetch("https://api.themoviedb.org/3/discover/movie?api_key=ccd4078b314e64c52e5fb9c409042e78")
+    fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?api_key=ccd4078b314e64c52e5fb9c409042e78`)
       .then(response => response.json())
       .then(json => setMovieList(json.results));
   };
-  console.log(movieList);
+
   const cardsRef = useRef();
 
   const handleWheel = (event) => {
@@ -28,21 +29,21 @@ const Moviecards = ({title,category}) => {
   }, []);
 
   return (
-    <>
-      <div className='movie-cards'>
-        <h2>{title?title:"Popular on Netflix"}</h2>
-        <div className="movie-list" ref={cardsRef}>
-          {
-            movieList.map((movie) => (
-              <div className='movie' key={movie.id}>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="movie poster" />
-                <p>{movie.original_title}</p>
-              </div>
-            ))
-          }
-        </div>
+    <div className='movie-cards'>
+      <h2>{title ? title : "Popular on Netflix"}</h2>
+      <div className="movie-list" ref={cardsRef}>
+        {movieList && movieList.length > 0 ? (
+          movieList.map((movie) => (
+            <Link href={`/Player/${movie.id}`} className='movie' key={movie.id}>
+              <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="movie poster" />
+              <p>{movie.original_title}</p>
+            </Link>
+          ))
+        ) : (
+          <p>Loading...</p> // Optional: you can show a loading message or spinner here
+        )}
       </div>
-    </>
+    </div>
   );
 }
 
