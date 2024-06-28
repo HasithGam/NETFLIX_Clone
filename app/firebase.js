@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { addDoc, collection, getFirestore } from "firebase/firestore"
+import toast from "react-hot-toast";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,24 +30,33 @@ const signUp = async (name, email, password) => {
             name,
             authProvider: "local",
             email
-        })
+        });
+        toast.success("Successfully signed up!");
     } catch (err) {
         console.log(err);
-        alert(err);
+        toast.error("Sign up error, please try again later");
     }
 }
 
 const login = async (email, password) => {
     try {
-        await signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password);
+        toast.success("Successfully logged in!");
     } catch (err) {
         console.log(err);
-        alert(err);
+        toast.error("Invalid login credentials!");
     }
 }
 
-const logout = () => {
-    signOut(auth);
+const logout = async () => {
+    try {
+        await signOut(auth);
+        toast.success("Successfully logged out!");
+    } catch (err) {
+        console.error(err);
+        toast.error("Logout failed, please try again later");
+    }
+
 }
 
 export { auth, db, login, signUp, logout }

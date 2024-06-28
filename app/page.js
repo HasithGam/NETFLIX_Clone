@@ -5,18 +5,19 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Homepage from "./Homepage/page";
 
-
 export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // console.log("Logged In");
-        router.push("/");
+        if (router.pathname === "/Login") {
+          router.push("/");
+        }
       } else {
-        // console.log("out");
-        router.push("/Login");
+        if (router.pathname !== "/Login") {
+          router.push("/Login");
+        }
       }
     });
 
