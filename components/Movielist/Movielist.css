@@ -10,7 +10,7 @@
     display: none; 
 }
 .movie-list .movie {
-    position: relative;
+    /* position: relative; */
 }
 .movie-list .movie p {
     position: absolute;
