@@ -30,10 +30,10 @@
 .nav-left-menu li{
     transition: transform 0.3s;
 }
-.nav-left-menu li:hover{
+/* .nav-left-menu li:hover{
     transform: scale(1.05); 
     color: rgba(230, 228, 228, 0.8);
-}
+} */
 .navbar-left img{
     width: 90px;
 }

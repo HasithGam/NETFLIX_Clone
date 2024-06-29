@@ -1,8 +1,8 @@
 "use client";
 import React from 'react'
-import './Homepage.css'
+import './homepage.css'
 import Navbar from '@/components/Navbar/Navbar'
-import Moviecards from '@/components/Moviecards/Moviecards'
+import Movielist from '@/components/Movielist/Movielist'
 import Footer from '@/components/Footer/Footer'
 
 const Homepage = () => {
@@ -19,15 +19,18 @@ const Homepage = () => {
               <button className='btn'><img src="/assets/play_icon.png" alt="Play Movie" />Play</button>
               <button className='btn dark-btn'><img src="/assets/info_icon.png" alt="infoemation" />More Info</button>
             </div>
-            <Moviecards />
+            <div className='banner-mivielist'>
+              <Movielist />
+            </div>
+
           </div>
         </div>
       </div>
       <div className="more-movies">
-        <Moviecards title={"Blockbuster Movies"} category={"top_rated"} />
-        <Moviecards title={"Only on Netflix"} category={"popular"} />
-        <Moviecards title={"Upcomming"} category={"upcoming"} />
-        <Moviecards title={"Today's Top Pics for you"} category={"now_playing"} />
+        <Movielist title={"Blockbuster Movies"} category={"top_rated"} />
+        <Movielist title={"Only on Netflix"} category={"popular"} />
+        <Movielist title={"Upcomming"} category={"upcoming"} />
+        <Movielist title={"Today's Top Pics for you"} category={"now_playing"} />
       </div>
       <Footer />
     </>

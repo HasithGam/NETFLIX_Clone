@@ -41,20 +41,16 @@ const signUp = async (name, email, password) => {
 const login = async (email, password) => {
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        toast.success("Successfully logged in!");
     } catch (err) {
         console.log(err);
-        toast.error("Invalid login credentials!");
     }
 }
 
 const logout = async () => {
     try {
         await signOut(auth);
-        toast.success("Successfully logged out!");
     } catch (err) {
         console.error(err);
-        toast.error("Logout failed, please try again later");
     }
 
 }

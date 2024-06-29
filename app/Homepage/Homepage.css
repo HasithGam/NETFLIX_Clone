@@ -59,7 +59,45 @@
 .home-default-btn .btn.dark-btn:hover{
     background: rgba(73, 73, 73, 0.8);
 }
-
 .more-movies{
     padding-left: 6%;
+}
+
+@media (max-width: 1024px) {
+    .home-default-btn{
+        margin-bottom: 30px;
+    }
+    .banner-mivielist{
+        display: none;
+    }
+}
+@media (max-width: 800px) {
+    .caption-img{
+        margin-bottom: 10px;
+        width: 50%;
+    }
+    .home-banner-caption{
+        padding-left: 4%;
+    }
+    .home-banner-caption p{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .more-movies{
+        padding: 4%;
+    }
+}
+
+@media (max-width: 500px) {
+     .caption-img{
+        display: none;
+    }
+    .home-default-btn .btn img{
+        width: 15px;
+    }
+    .home-default-btn .btn{
+        padding: 4px 10px;
+        gap: 5px;
+        font-size: 11px;
+    }
 }

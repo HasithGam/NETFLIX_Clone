@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import Homepage from "./Homepage/page";
+import Homepage from "./homepage/page";
 
 export default function Home() {
   const router = useRouter();
@@ -11,12 +11,12 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        if (router.pathname === "/Login") {
+        if (router.pathname === "/login") {
           router.push("/");
         }
       } else {
-        if (router.pathname !== "/Login") {
-          router.push("/Login");
+        if (router.pathname !== "/login") {
+          router.push("/login");
         }
       }
     });

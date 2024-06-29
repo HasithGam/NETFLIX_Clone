@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import '../Player.css';
+import './player.css';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -15,7 +15,7 @@ const Player = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (!user) {
-                router.push('/Login');
+                router.push('/login');
             }
         });
 

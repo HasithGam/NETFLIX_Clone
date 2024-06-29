@@ -26,7 +26,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await firebaseLogout();
-      router.push('/Login');
+      router.push('/login');
     } catch (err) {
       console.error("Failed to logout: ", err);
     }
