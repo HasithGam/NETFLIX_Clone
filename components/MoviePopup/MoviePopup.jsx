@@ -5,7 +5,7 @@ const MoviePopup = ({ movieId }) => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=ccd4078b314e64c52e5fb9c409042e78`)
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
       .then(response => response.json())
       .then(json => setMovie(json));
   }, [movieId]);
